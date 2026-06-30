@@ -2,9 +2,19 @@
 
 ## 1. Objetivo
 
-Este Plano de Testes foi elaborado para simular o processo de planejamento de testes utilizado em projetos reais de **Quality Assurance (QA)**, aplicando boas práticas de documentação, execução de testes manuais e automação sobre a aplicação **SauceDemo**.
+Este documento descreve o planejamento dos testes para a aplicação SauceDemo, definindo escopo, estratégia, ambiente, critérios de execução e demais informações necessárias para validar os principais fluxos da aplicação.
 
-O objetivo é validar os principais fluxos de negócio da aplicação, garantindo o correto funcionamento das funcionalidades críticas relacionadas ao processo de compra e demonstrando uma abordagem estruturada para garantia da qualidade de software.
+## Informações do Projeto
+
+**Aplicação:** SauceDemo
+
+**Objetivo do projeto:** Construção de um portfólio de QA Automation.
+
+**Tipo de testes:** Funcionais (manuais e automatizados).
+
+**Framework:** Cypress.
+
+**Linguagem:** JavaScript.
 
 ---
 
@@ -59,7 +69,7 @@ Nesta etapa são identificadas as funcionalidades da aplicação e definidos os 
 
 ### 5.2 Especificação dos Cenários (BDD)
 
-Os cenários críticos também serão documentados utilizando a abordagem BDD (Behavior Driven Development), com o objetivo de representar o comportamento esperado da aplicação em uma linguagem clara e padronizada. Esses cenários servirão como apoio à documentação funcional e poderão ser utilizados como base para a automação dos testes
+Os cenários mais importantes serão documentados em BDD utilizando a sintaxe Gherkin. Esses cenários servirão como apoio para a documentação funcional e para a automação dos testes.
 
 **Atividades:**
 
@@ -96,7 +106,7 @@ Após a validação manual, os cenários priorizados serão automatizados utiliz
 
 ### 5.5 Evidências
 
-Durante a execução dos testes serão registradas evidências para apoiar a análise dos resultados, garantindo maior rastreabilidade das validações realizadas.
+As evidências geradas durante a execução dos testes serão registradas neste projeto para apoiar a análise dos resultados e dos defeitos encontrados.
 
 **Atividades:**
 
@@ -108,18 +118,18 @@ Durante a execução dos testes serão registradas evidências para apoiar a an�
 
 ## 6. Ambiente de Testes
 
-Os testes descritos neste plano serão executados em um ambiente controlado, utilizando as configurações abaixo.
+Os testes serão executados na aplicação pública SauceDemo utilizando um ambiente local configurado para desenvolvimento e automação dos testes.
 
 | Item | Descrição |
 |------|-----------|
 | Aplicação | SauceDemo |
 | URL | https://www.saucedemo.com |
 | Ambiente | Produção (Demo) |
-| Navegador | Google Chrome (última versão estável) |
+| Navegador | Google Chrome |
 | Sistema Operacional | Windows 11 |
 | Framework de Automação | Cypress |
 | Linguagem | JavaScript |
-| Gerenciador de Pacotes | Node.js / npm |
+| Gerenciador de Pacotes | Node.js v20.15.0 / npm 10.7.0|
 | Controle de Versão | Git |
 | Repositório | GitHub |
 | IDE | Visual Studio Code |
@@ -138,7 +148,7 @@ A execução dos testes somente será iniciada após a validação dos seguintes
 - O ambiente de testes deve estar estável e operacional.
 - As credenciais de acesso devem estar disponíveis para utilização durante os testes.
 - O Plano de Testes deve estar concluído e revisado.
-- Os Casos de Teste devem estar documentados.
+- Os casos de teste devem estar documentados e revisados.
 - Os cenários BDD devem estar definidos para os fluxos priorizados.
 - O ambiente de automação (Cypress) deve estar configurado e funcional.
 
@@ -178,5 +188,34 @@ Este projeto contempla a execução de diferentes tipos de testes com o objetivo
 | Compatibilidade entre Navegadores | ❌ | Os testes serão executados apenas no Google Chrome. |
 | Responsividade | ❌ | A versão mobile não será validada neste projeto. |
 
-10. Riscos
-11. Ferramentas
+---
+
+## 10. Riscos
+
+Durante a execução dos testes, alguns fatores podem impactar o andamento das atividades ou comprometer os resultados obtidos. Os principais riscos identificados para este projeto são apresentados na tabela abaixo.
+
+| Risco | Impacto | Mitigação |
+|--------|----------|-----------|
+| Indisponibilidade da aplicação SauceDemo | Alto | Aguardar a normalização do serviço antes de prosseguir com os testes. |
+| Alterações na aplicação de demonstração | Médio | Revisar e atualizar os casos de teste e scripts de automação quando necessário. |
+| Instabilidade na conexão com a internet | Médio | Garantir uma conexão estável durante a execução dos testes. |
+| Mudanças nos elementos da interface (IDs, seletores, etc.) | Médio | Atualizar os localizadores utilizados na automação. |
+| Falhas na configuração do ambiente local | Baixo | Validar previamente a instalação e configuração das ferramentas utilizadas. |
+
+---
+
+## 11. Ferramentas Utilizadas
+
+As ferramentas abaixo serão utilizadas durante o desenvolvimento, execução e documentação deste projeto de testes.
+
+| Ferramenta | Finalidade |
+|-------------|------------|
+| Visual Studio Code | Desenvolvimento e manutenção do projeto. |
+| Cypress | Automação dos testes end-to-end (E2E). |
+| JavaScript | Linguagem utilizada na implementação dos testes automatizados. |
+| Node.js | Ambiente de execução do Cypress e gerenciamento das dependências do projeto. |
+| npm | Gerenciamento de pacotes e dependências. |
+| Git | Controle de versão do código-fonte. |
+| GitHub | Armazenamento do repositório e versionamento do projeto. |
+| Google Chrome | Navegador utilizado para execução dos testes. |
+| Markdown (.md) | Documentação do projeto (Plano de Testes, Casos de Teste, BDD, Relatório de Bugs e Evidências). |
