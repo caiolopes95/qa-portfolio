@@ -65,32 +65,7 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
 
 ---
 
-# TC-LOGIN-003 - Login com usuário bloqueado
-
-| Campo | Descrição |
-|--------|-----------|
-| ID | TC-LOGIN-003 |
-| Prioridade | Alta |
-| Tipo | Negativo |
-| Pré-condição | Usuário na tela de login. |
-| Massa de teste | Usuário: `locked_out_user`<br>Senha: `secret_sauce` |
-
-## Passos
-
- Informar o usuário `locked_out_user`. 
- Informar a senha `secret_sauce`. 
- Clicar em **Login**. 
-
-## Resultado esperado
-
-- O login não deve ser realizado.
-- O sistema deve exibir a mensagem:
-  > **Epic sadface: Sorry, this user has been locked out.**
-- O usuário deve permanecer na tela de login.
-
----
-
-# TC-LOGIN-004 - Login sem preencher o usuário
+# TC-LOGIN-003 - Login sem preencher o usuário
 
 | Campo | Descrição |
 |--------|-----------|
@@ -114,7 +89,7 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
 
 ---
 
-# TC-LOGIN-005 - Login sem preencher a senha
+# TC-LOGIN-004 - Login sem preencher a senha
 
 | Campo | Descrição |
 |--------|-----------|
@@ -138,7 +113,7 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
 
 ---
 
-# TC-LOGIN-006 - Login sem preencher usuário e senha
+# TC-LOGIN-005 - Login sem preencher usuário e senha
 
 | Campo | Descrição |
 |--------|-----------|
