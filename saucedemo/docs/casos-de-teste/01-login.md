@@ -23,12 +23,12 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
 | Prioridade | Alta |
 | Tipo | Positivo |
 | Pré-condição | Usuário na tela de login. |
-| Massa de teste | Usuário: `testecaio@gmail.com`<br>Senha: `senhateste123` |
+| Massa de teste | Usuário: `standard_user`<br>Senha: `secret_sauce` |
 
 ## Passos
 
-- Informar o usuário `testecaio@gmail.com`. 
-- Informar a senha `senhateste123`. 
+- Informar o usuário `standard_user`. 
+- Informar a senha `secret_sauce`. 
 - Clicar no botão **Login**. 
 
 ## Resultado esperado
@@ -48,11 +48,11 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
 | Prioridade | Alta |
 | Tipo | Negativo |
 | Pré-condição | Usuário na tela de login. |
-| Massa de teste | Usuário: `testecaio@gmail.com` <br>Senha: `incorreta` |
+| Massa de teste | Usuário: `standard_user` <br>Senha: `incorreta` |
 
 ## Passos
 
-- Informar o usuário `testecaio@gmail.com`. 
+- Informar o usuário `standard_user`. 
 - Informar uma senha inválida. 
 - Clicar em **Login**. 
 
@@ -97,13 +97,13 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
 | Prioridade | Média |
 | Tipo | Negativo |
 | Pré-condição | Usuário na tela de login. |
-| Massa de teste | Usuário: `testecaio@gmail.com`<br>Senha: vazia |
+| Massa de teste | Usuário: `standard_user`<br>Senha: vazia |
 
 ## Passos
 
- Informar o usuário `testecaio@gmail.com`. 
- Deixar o campo **Password** vazio. 
- Clicar em **Login**. 
+- Informar o usuário `standard_user`. 
+- Deixar o campo **Password** vazio. 
+- Clicar em **Login**. 
 
 ## Resultado esperado
 
@@ -134,3 +134,70 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
   > **Epic sadface: Username is required**
 
   ---
+  # TC-LOGIN-006 - Login com usuário inexistente
+
+| Campo | Descrição |
+|--------|-----------|
+| ID | TC-LOGIN-006 |
+| Prioridade | Média |
+| Tipo | Negativo |
+| Pré-condição | Usuário na tela de login. |
+
+## Passos
+
+- Informar um **Username** inexistente.
+- Informar uma **Password** válida.
+- Clicar em **Login**.
+
+## Resultado esperado
+
+- O login não deve ser realizado.
+- O sistema deve exibir a mensagem:
+  > **Epic sadface: Username and password do not match any user in this service**
+
+---
+
+# TC-LOGIN-007 - Login com usuário bloqueado
+
+| Campo | Descrição |
+|--------|-----------|
+| ID | TC-LOGIN-007 |
+| Prioridade | Alta |
+| Tipo | Negativo |
+| Pré-condição | Usuário na tela de login. |
+
+## Passos
+
+- Informar o usuário **locked_out_user**.
+- Informar a senha **secret_sauce**.
+- Clicar em **Login**.
+
+## Resultado esperado
+
+- O login não deve ser realizado.
+- O sistema deve exibir a mensagem:
+  > **Epic sadface: Sorry, this user has been locked out.**
+
+---
+
+# TC-LOGIN-008 - Validar redirecionamento para a página de produtos após login com sucesso
+
+| Campo | Descrição |
+|--------|-----------|
+| ID | TC-LOGIN-009 |
+| Prioridade | Alta |
+| Tipo | Positivo |
+| Pré-condição | Usuário na tela de login. |
+
+## Passos
+
+- Informar o usuário **standard_user**.
+- Informar a senha **secret_sauce**.
+- Clicar em **Login**.
+
+## Resultado esperado
+
+- O login deve ser realizado com sucesso.
+- O usuário deve ser redirecionado para a página de produtos.
+- A URL deve conter **/inventory.html**.
+- A lista de produtos deve ser exibida.
