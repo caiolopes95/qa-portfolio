@@ -179,25 +179,3 @@ Este documento reúne os casos de teste da funcionalidade de login do Sauce Demo
   > **Epic sadface: Sorry, this user has been locked out.**
 
 ---
-
-# TC-LOGIN-008 - Validar redirecionamento para a página de produtos após login com sucesso
-
-| Campo | Descrição |
-|--------|-----------|
-| ID | TC-LOGIN-009 |
-| Prioridade | Alta |
-| Tipo | Positivo |
-| Pré-condição | Usuário na tela de login. |
-
-## Passos
-
-- Informar o usuário **standard_user**.
-- Informar a senha **secret_sauce**.
-- Clicar em **Login**.
-
-## Resultado esperado
-
-- O login deve ser realizado com sucesso.
-- O usuário deve ser redirecionado para a página de produtos.
-- A URL deve conter **/inventory.html**.
-- A lista de produtos deve ser exibida.

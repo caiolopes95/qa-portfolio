@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("visitUrl", () => {
+  cy.visit("/");
+});
+
+Cypress.Commands.add('validateErrorMessage', (message) => {
+        cy.get('[data-test=error]')
+          .should('contain', message)
+    }
+)

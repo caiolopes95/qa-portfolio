@@ -1,3 +1,6 @@
+import commands from '../support/commands';
+import loginData from '../fixtures/loginData.json';
+
 const elements = {
     username: '[data-test=username]',
     password: '[data-test=password]',
@@ -8,30 +11,49 @@ const elements = {
 class LoginPage {
 
     visitPage() {
-        cy.visit('https://www.saucedemo.com/'); 
+        cy.visit('/')
     }
 
-    loginSuccessful(user,pass) {
+    login(user,pass) {
         cy.get(elements.username).type(user)
         cy.get(elements.password).type(pass)
-        cy.get(elements.loginButton).click();
+        cy.get(elements.loginButton).click();       
     }
     
     validateSuccessfulLogin() {
         cy.url().should('include', '/inventory')
     }
 
-    invalidPassword(user,pass) {
-        cy.get(elements.username).type(user)
-        cy.get(elements.password).type(pass)
-        cy.get(elements.loginButton).click();
-    }
 
     validateInvalidPassword() {
-        cy.get(elements.error)
-        .should('contain', 'Username and password do not match any user in this service')
+        cy.validateErrorMessage('Username and password do not match any user in this service')
+    }
+
+
+    loginWithoutUser(pass) {
+        cy.get(elements.password).type(pass)
+        cy.get(elements.loginButton).click();
+        cy.validateErrorMessage('Epic sadface: Username is required')
+    }
+
+    loginWithoutPassword(user) {
+        cy.get(elements.username).type(user)
+        cy.get(elements.loginButton).click();
+        cy.validateErrorMessage('Epic sadface: Password is required')
+    }
+
+    loginNull() {
+        cy.get(elements.loginButton).click();
+        cy.validateErrorMessage('Epic sadface: Username is required')
+    }
+
+    loginNotRegistered() {
+        cy.validateErrorMessage('Epic sadface: Username and password do not match any user in this service')
+    }
+
+    lockedUser() {
+        cy.validateErrorMessage('Epic sadface: Sorry, this user has been locked out.')
     }
 
 }
-
 export default new LoginPage(); 
