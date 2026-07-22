@@ -15,6 +15,15 @@ Este documento reúne os casos de teste da funcionalidade de **Produtos** do Sau
 
 ---
 
+# TC-PROD-001 - Validar carregamento da tela de produtos
+
+| Campo | Descrição |
+|--------|-----------|
+| ID | TC-PROD-001 |
+| Prioridade |Alta |
+| Tipo | Positivo |
+| Pré-condição | Usuário autenticado e na página de produtos. |
+
 ## Passos
 
 - Realizar login com credenciais válidas.

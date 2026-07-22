@@ -1,29 +1,3 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
 Cypress.Commands.add("visitUrl", () => {
   cy.visit("/");
 });
@@ -33,3 +7,62 @@ Cypress.Commands.add('validateErrorMessage', (message) => {
           .should('contain', message)
     }
 )
+
+Cypress.Commands.add('validateSortAsc', (locator) => {
+    cy.get(locator).then(($elements) => {
+
+        const valores = [...$elements].map(el =>
+            Number(el.innerText.replace(/[^\d,.-]/g, ''))
+        );
+        const ordenada = [...valores].sort((a,b) => a-b);
+        expect(valores).to.deep.equal(ordenada);
+    });
+
+});
+
+Cypress.Commands.add('validateSortDesc', (locator) => {
+
+    cy.get(locator).then(($elements) => {
+
+        const valores = [...$elements].map(el =>
+            Number(el.innerText.replace(/[^\d.-]/g, ''))
+        );
+
+        const ordenada = [...valores].sort((a, b) => b-a);
+
+        expect(valores).to.deep.equal(ordenada);
+
+    });
+
+});
+
+Cypress.Commands.add('validateSortAscText', (locator) => {
+    cy.get(locator).then(($elements) => {
+
+        const valores = [...$elements].map(el =>
+            el.innerText.trim()
+        );
+
+        const ordenada = [...valores].sort((a, b) =>
+            a.localeCompare(b)
+        );
+
+        expect(valores).to.deep.equal(ordenada);
+    });    
+});
+
+Cypress.Commands.add('validateSortDescText', (locator) => {
+    cy.get(locator).then(($elements) => {
+
+        const valores = [...$elements].map(el =>
+            el.innerText.trim()
+        );
+
+        const ordenada = [...valores].sort((a, b) =>
+            b.localeCompare(a)
+        );
+
+        expect(valores).to.deep.equal(ordenada);
+
+    });
+});
