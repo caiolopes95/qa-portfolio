@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="7.352" tests="7" failures="0">
+  <testsuite name="Root Suite" timestamp="2026-08-05T00:59:42" tests="0" file="cypress\e2e\catalogo.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Catálogo de Produtos" timestamp="2026-08-05T00:59:42" tests="7" time="7.347" failures="0">
+    <testcase name="Catálogo de Produtos TC-PROD-001 - Validar carregamento da tela de produtos" time="1.264" classname="TC-PROD-001 - Validar carregamento da tela de produtos">
+    </testcase>
+    <testcase name="Catálogo de Produtos TC-PROD-002 - Visualizar detalhes de um produto" time="0.943" classname="TC-PROD-002 - Visualizar detalhes de um produto">
+    </testcase>
+    <testcase name="Catálogo de Produtos TC-PROD-003 - Retornar à lista de produtos após visualizar os detalhes" time="1.075" classname="TC-PROD-003 - Retornar à lista de produtos após visualizar os detalhes">
+    </testcase>
+    <testcase name="Catálogo de Produtos TC-PROD-004 - Ordenar produtos por nome (A → Z)" time="1.009" classname="TC-PROD-004 - Ordenar produtos por nome (A → Z)">
+    </testcase>
+    <testcase name="Catálogo de Produtos TC-PROD-005 - Ordenar produtos por nome (Z → A)" time="0.903" classname="TC-PROD-005 - Ordenar produtos por nome (Z → A)">
+    </testcase>
+    <testcase name="Catálogo de Produtos TC-PROD-006 - Orden ar produtos por preço (Menor → Maior)" time="0.906" classname="TC-PROD-006 - Orden ar produtos por preço (Menor → Maior)">
+    </testcase>
+    <testcase name="Catálogo de Produtos TC-PROD-007 - Ordenar produtos por preço (Maior → Menor)" time="1.029" classname="TC-PROD-007 - Ordenar produtos por preço (Maior → Menor)">
+    </testcase>
+  </testsuite>
+</testsuites>

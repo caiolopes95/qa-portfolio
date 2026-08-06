@@ -1,3 +1,6 @@
+import loginData from '../fixtures/loginData.json';
+import LoginPage from '../pages/LoginPage';
+
 Cypress.Commands.add("visitUrl", () => {
   cy.visit("/");
 });
@@ -7,6 +10,13 @@ Cypress.Commands.add('validateErrorMessage', (message) => {
           .should('contain', message)
     }
 )
+
+Cypress.Commands.add('login', () => {
+   LoginPage.visitPage()
+   LoginPage.login(
+        loginData.validUser.username, 
+        loginData.passwords.valid)
+})
 
 Cypress.Commands.add('validateSortAsc', (locator) => {
     cy.get(locator).then(($elements) => {

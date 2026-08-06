@@ -1,13 +1,13 @@
 import LoginPage from '../pages/LoginPage';
 import loginData from '../fixtures/loginData.json';
 import CatalogoPage from '../pages/CatalogoPage';
+import commands from '../support/commands';
 
 
 describe('Catálogo de Produtos', () => {
 
    beforeEach(() => {
-        LoginPage.visitPage()
-        LoginPage.login(loginData.validUser.username, loginData.passwords.valid)
+        cy.login()
    })
 
     it('TC-PROD-001 - Validar carregamento da tela de produtos', () => {
