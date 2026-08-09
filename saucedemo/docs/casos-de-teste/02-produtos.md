@@ -1,4 +1,4 @@
-# Casos de Teste - Login
+# Casos de Teste - Produtos
 
 ## Objetivo
 
