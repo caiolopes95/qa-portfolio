@@ -6,7 +6,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install dependencies with caching
-      # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cypress-reports
+          path: cypress/reports
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+       
