@@ -6,12 +6,13 @@ module.exports = defineConfig({
   reporterOptions: {
     reporterEnabled: 'cypress-mochawesome-reporter, mocha-junit-reporter',
     mochaJunitReporterReporterOptions: {
-      mochaFile: 'C:/projetos/estudo-qa/cypress/reports/junit/results-[hash].xml'
+      mochaFile: 'cypress/reports/junit/results-[hash].xml'
     },
     cypressMochawesomeReporterReporterOptions: {
+      reportDir: 'cypress/reports', ///
       charts: true,
       reportPageTitle: 'Relatório de testes',
-      embeddedScreensShots: true,
+      embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false
     }
