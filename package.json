@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:e2e": "cypress run"
+    "test:e2e": "cypress run",
+    "cy:open:chrome": "cypress open --browser chrome",
+    "cy:run:chrome": "cypress run --browser chorme"
   },
   "keywords": [],
   "author": "",
