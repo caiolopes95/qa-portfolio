@@ -5,7 +5,7 @@
   "scripts": {
     "test:e2e": "cypress run",
     "cy:open:chrome": "cypress open --browser chrome",
-    "cy:run:chrome": "cypress run --browser chorme"
+    "cy:run:chrome": "cypress run --browser chrome"
   },
   "keywords": [],
   "author": "",
