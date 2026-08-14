@@ -275,6 +275,34 @@ Formato estruturado utilizado para armazenar os resultados da execução dos tes
 
 ---
 
+## CI/CD
+
+#### GitHub Actions - Continuous Integration
+
+Pipeline configurada para executar automaticamente os testes automatizados
+em eventos de push e pull request.
+
+- Execução dos testes E2E com Cypress
+- Geração de relatórios
+- Armazenamento de artifacts
+- Visualização dos logs e status da execução
+
+[GitHub Actions - Workflows](https://github.com/caiolopes95/qa-portfolio/actions/runs/31644966530)
+
+#### GitLab CI/CD - Continuous Integration
+
+Pipeline configurada para executar os testes automatizados através de jobs.
+
+- Execução dos testes E2E com Cypress
+- Logs detalhados por job
+- Visualização do status da pipeline
+- Armazenamento e acesso aos artifacts
+- Resultados das execuções
+
+[GitLab CI/CD - Pipelines](https://gitlab.com/caioclp95/qa-portfolio/-/jobs/15879166540)
+
+---
+
 ## Tecnologias e Ferramentas
 
 ### Automação
@@ -283,6 +311,11 @@ Formato estruturado utilizado para armazenar os resultados da execução dos tes
 - JavaScript
 - Node.js
 - npm
+
+### CI/CD
+
+- GitHub Actions
+- GitLab CI/CD
 
 ### Qualidade
 
@@ -306,6 +339,7 @@ Formato estruturado utilizado para armazenar os resultados da execução dos tes
 
 ### Relatórios
 
+- Mochawesome
 - HTML
 - JUnit / XML
 
