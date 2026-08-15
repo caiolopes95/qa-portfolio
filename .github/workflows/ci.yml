@@ -8,13 +8,24 @@ jobs:
     runs-on: ubuntu-24.04
 
     strategy:
+      fail-fast: false
+
       matrix:
-        spec:
-          - cypress/e2e/login.cy.js
-          - cypress/e2e/catalogo.cy.js
-          - cypress/e2e/carrinho.cy.js
-          - cypress/e2e/checkout.cy.js
-          - cypress/e2e/regressão/purchase-flow.cy.js
+        include:
+          - spec: cypress/e2e/login.cy.js
+            name: login
+
+          - spec: cypress/e2e/catalogo.cy.js
+            name: catalogo
+
+          - spec: cypress/e2e/carrinho.cy.js
+            name: carrinho
+
+          - spec: cypress/e2e/checkout.cy.js
+            name: checkout
+
+          - spec: cypress/e2e/regressão/purchase-flow.cy.js
+            name: purchase-flow
 
     steps:
       - name: Checkout
@@ -27,12 +38,12 @@ jobs:
 
       - uses: actions/upload-artifact@v7
         with:
-          name: cypress-reports-${{ matrix.spec }}
+          name: cypress-reports-${{ matrix.name }}
           path: cypress/reports
           if-no-files-found: ignore
 
       - uses: actions/upload-artifact@v7
         with:
-          name: cypress-videos-${{ matrix.spec }}
+          name: cypress-videos-${{ matrix.name }}
           path: cypress/videos
           if-no-files-found: ignore
