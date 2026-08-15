@@ -1,21 +1,38 @@
-name: End-to-end tests
+name: Cypress E2E Tests
+
 on: push
+
 jobs:
   cypress-run:
+    name: Cypress - ${{ matrix.spec }}
     runs-on: ubuntu-24.04
+
+    strategy:
+      matrix:
+        spec:
+          - cypress/e2e/login.cy.js
+          - cypress/e2e/catalogo.cy.js
+          - cypress/e2e/carrinho.cy.js
+          - cypress/e2e/checkout.cy.js
+          - cypress/e2e/regressão/purchase-flow.cy.js
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          spec: ${{ matrix.spec }}
+
       - uses: actions/upload-artifact@v7
         with:
-          name: cypress-reports
+          name: cypress-reports-${{ matrix.spec }}
           path: cypress/reports
           if-no-files-found: ignore
+
       - uses: actions/upload-artifact@v7
         with:
-          name: cypress-videos
+          name: cypress-videos-${{ matrix.spec }}
           path: cypress/videos
           if-no-files-found: ignore
-       
