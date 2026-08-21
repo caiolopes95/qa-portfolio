@@ -4,7 +4,7 @@ on: push
 
 jobs:
   cypress-run:
-    name: Cypress - ${{ matrix.spec }}
+    name: Cypress - ${{ matrix.name }} - ${{ matrix.browser }}
     runs-on: ubuntu-24.04
 
     strategy:
@@ -14,18 +14,43 @@ jobs:
         include:
           - spec: cypress/e2e/login.cy.js
             name: login
+            browser: chrome
+
+          - spec: cypress/e2e/login.cy.js
+            name: login
+            browser: firefox
 
           - spec: cypress/e2e/catalogo.cy.js
             name: catalogo
+            browser: chrome
+
+          - spec: cypress/e2e/catalogo.cy.js
+            name: catalogo
+            browser: firefox
 
           - spec: cypress/e2e/carrinho.cy.js
             name: carrinho
+            browser: chrome
+
+          - spec: cypress/e2e/carrinho.cy.js
+            name: carrinho
+            browser: firefox
 
           - spec: cypress/e2e/checkout.cy.js
             name: checkout
+            browser: chrome
+
+          - spec: cypress/e2e/checkout.cy.js
+            name: checkout
+            browser: firefox
 
           - spec: cypress/e2e/regressão/purchase-flow.cy.js
             name: purchase-flow
+            browser: chrome
+
+          - spec: cypress/e2e/regressão/purchase-flow.cy.js
+            name: purchase-flow
+            browser: firefox
 
     steps:
       - name: Checkout
@@ -35,15 +60,16 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           spec: ${{ matrix.spec }}
+          browser: ${{ matrix.browser }}
 
       - uses: actions/upload-artifact@v7
         with:
-          name: cypress-reports-${{ matrix.name }}
+          name: cypress-reports-${{ matrix.name }}-${{ matrix.browser }}
           path: cypress/reports
           if-no-files-found: ignore
 
       - uses: actions/upload-artifact@v7
         with:
-          name: cypress-videos-${{ matrix.name }}
+          name: cypress-videos-${{ matrix.name }}-${{ matrix.browser }}
           path: cypress/videos
           if-no-files-found: ignore
